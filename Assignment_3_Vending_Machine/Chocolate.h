@@ -10,5 +10,11 @@ public:
 	int getItemType();
 	//Return the item's price
 	float getItemPrice();
+
+	//Parameterized Constructor
+	Chocolate(int);
+
+	//Default Constructor
+	Chocolate();
 };
 

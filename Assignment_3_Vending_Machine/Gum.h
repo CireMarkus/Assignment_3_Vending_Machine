@@ -12,25 +12,10 @@ public:
 	//Returns the price of the item
 	float getItemPrice();
 	
-	Gum(int itemType): mItemType(itemType){
-
-		switch (mItemType)
-		{
-		case 1:
-			mItemPrice = 0.50;
-			break;
-		case 2:
-			mItemPrice = 0.75;
-			break;
-		case 3:
-			mItemPrice = 1.00;
-			break;
-		default:
-			mItemPrice = 0.50;
-			break;
-		}
-	}
-
-
+	//Paramaterized Constructor
+	Gum(int);
+	
+	//Default Constructor
+	Gum();
 };
 

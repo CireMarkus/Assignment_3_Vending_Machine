@@ -11,28 +11,10 @@ public:
 	float getItemPrice();
 	
 	//Paramertized constructor accepts item type
-	Chips(int itemtype): mItemType(itemtype){
-		switch (mItemType)
-		{
-		case 1:
-			mItemPrice = 0.75;
-			break;
-		case 2:
-			mItemPrice = 1.00;
-			break;
-		case 3:
-			mItemPrice = 1.25;
-			break;
-		default:
-			mItemType = 1;	
-			mItemPrice = 0.75;
-			break;
-		}
-		
-	};
+	Chips(int);
 
-	Chips() :Chips(1) {
-	};
+	//Default contructor
+	Chips();
 
 };
 
