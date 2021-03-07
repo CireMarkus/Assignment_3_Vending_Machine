@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cmath>
 using namespace std;
 
 
@@ -25,7 +26,14 @@ int main()
 
 void changeCalculator(float* payment, float* price)
 {
-	float change = *payment - *price;
+	int change = (*payment - *price)* 100;
+
+	int dollars = 0;
+	int quarters = 0; 
+	int dimes = 0; 
+	int nickles = 0; 
+	int pennies = 0;
+
 
 	if (change < 0) {
 		cout << "You must provide a payment equal to or greater than the price of the item you are purchasing.\n\n";
@@ -33,8 +41,10 @@ void changeCalculator(float* payment, float* price)
 	}
 	else {
 		if (change > 99) {
-
+			dollars = floor(change / 100);
+			change = change % 100;
 		}
+		
 	}
 
 
