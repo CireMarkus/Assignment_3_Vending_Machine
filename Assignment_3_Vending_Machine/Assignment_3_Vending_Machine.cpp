@@ -14,9 +14,11 @@
 using namespace std;
 
 
-
+//Function to calculate the change to the customer.
 void changeCalculator(float, float const&);
+//Function that takes payment from the customer.
 float payment(float const&);
+//Function that tells the customer goodbye.
 void partingMessage(bool&);
 
 
@@ -46,6 +48,7 @@ int main()
 
 		switch (toupper(categoryChoice))
 		{
+		//Case if the customer chooses chips 
 		case 'A':
 			cout << "You have chosen chips! \n\nWhat type of chips would you like:\n\n";
 			cout << "1. Type 1 \n2. Type 2 \n3. Type 3\nInput:";
@@ -61,6 +64,8 @@ int main()
 
 
 			break;
+
+		//Case if the customer chooses cookies 
 		case 'B':
 			cout << "You have chosen cookies! \n\nWhat type of cookies would you like:\n\n";
 			cout << "1. Type 1 \n2. Type 2 \n3. Type 3\nInput:";
@@ -74,6 +79,8 @@ int main()
 
 			partingMessage(flag);
 			break;
+
+		//case if the customer chooses gum
 		case 'C':
 			cout << "You have chosen gum! \n\nWhat type of gum would you like:\n\n";
 			cout << "1. Type 1 \n2. Type 2 \n3. Type 3\nInput:";
@@ -87,6 +94,8 @@ int main()
 
 			partingMessage(flag);
 			break;
+
+		//case if the customer chooses chocolate
 		case 'D':
 			cout << "You have chosen chocolate! \n\nWhat type of chocolate would you like:\n\n";
 			cout << "1. Type 1 \n2. Type 2 \n3. Type 3\nInput:";
@@ -100,6 +109,8 @@ int main()
 
 			partingMessage(flag);
 			break;
+
+		//case if the customer chooses drinks
 		case 'E':
 			cout << "You have chosen drinks! \n\nWhat type of drink would you like:\n\n";
 			cout << "1. Type 1 \n2. Type 2 \n3. Type 3\nInput:";
@@ -113,6 +124,8 @@ int main()
 
 			partingMessage(flag);
 			break;
+
+		//default statement if the cusotmer enters and invalid category. 
 		default:
 			cout << "Sorry, we do not server that option.";
 			break;
@@ -127,7 +140,7 @@ void changeCalculator(float payment, float const& price)
 	cout << fixed << setprecision(2);
 	cout << "\n\nYour change is : $"<< payment - price<<"\n";
 
-//TODO: Create logic to calculate coins returned.
+
 
 
 
@@ -138,7 +151,7 @@ void changeCalculator(float payment, float const& price)
 	int nickles = 0; 
 	int pennies = 0;
 
-
+	//Logic to print how many dollars, quarters, dimes, nickles, and pennies the customer gets back. 
 	if (change < 0) {
 		cout << "You must provide a payment equal to or greater than the price of the item you are purchasing.\n\n";
 
@@ -177,6 +190,9 @@ void changeCalculator(float payment, float const& price)
 
 }
 
+//Logic to get the payment from the customer. 
+//If the customer provides more than 10.00 then the vending machine notifices we do not accept over 10.00
+//If the customer provides less than the amount of the item, they can either add more money or exit if they do not have enough.
 float payment(float const& price) {
 	
 	float payment = 0.0;
@@ -199,7 +215,7 @@ float payment(float const& price) {
 
 		}
 		else if (payment > 10.00) {
-			cout << "We do not accept payment over $10.00 please provide less than 10.00 or enter -1 to exit: ";
+			cout << "We do not accept payment over $10.00 please provide less than  or equal to $10.00 or enter -1 to exit: ";
 				cin >> payment;
 		}
 	}
@@ -210,6 +226,7 @@ float payment(float const& price) {
 }
 
 
+//Parting message to the customer and tells them to grab their item.
 void partingMessage(bool& flag) {
 
 	cout << "Thank you, your item is in the dispenser. Goodbye.\n\n\n\n";
