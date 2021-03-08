@@ -53,7 +53,7 @@ int main()
 
 			chips = Chips(itemType);
 
-			cout << "\n\n You chose chip type " << chips.getItemType() << " with a cost of $" << chips.getItemPrice() << endl;
+			cout << "\n\nYou chose chip type " << chips.getItemType() << " with a cost of $" << chips.getItemPrice() << endl;
 
 			changeCalculator(payment(chips.getItemPrice()), chips.getItemPrice());
 
@@ -68,7 +68,7 @@ int main()
 
 			cookies = Cookies(itemType);
 
-			cout << "\n\n You chose cookie type " << cookies.getItemType() << " with a cost of $" << cookies.getItemPrice() << endl;
+			cout << "\n\nYou chose cookie type " << cookies.getItemType() << " with a cost of $" << cookies.getItemPrice() << endl;
 
 			changeCalculator(payment(cookies.getItemPrice()), cookies.getItemPrice());
 
@@ -81,7 +81,7 @@ int main()
 
 			gum = Gum(itemType);
 
-			cout << "\n\n You chose gum type " << gum.getItemType() << " with a cost of $" << gum.getItemPrice() << endl;
+			cout << "\n\nYou chose gum type " << gum.getItemType() << " with a cost of $" << gum.getItemPrice() << endl;
 
 			changeCalculator(payment(gum.getItemPrice()), gum.getItemPrice());
 
@@ -94,7 +94,7 @@ int main()
 
 			chocolate = Chocolate(itemType);
 
-			cout << "\n\n You chose chocolate type " << chocolate.getItemType() << " with a cost of $" << chocolate.getItemPrice() << endl;
+			cout << "\n\nYou chose chocolate type " << chocolate.getItemType() << " with a cost of $" << chocolate.getItemPrice() << endl;
 
 			changeCalculator(payment(chocolate.getItemPrice()), chocolate.getItemPrice());
 
@@ -107,7 +107,7 @@ int main()
 
 			drink = Drink(itemType);
 
-			cout << "\n\n You chose drink type " << drink.getItemType() << " with a cost of $" << drink.getItemPrice() << endl;
+			cout << "\n\nYou chose drink type " << drink.getItemType() << " with a cost of $" << drink.getItemPrice() << endl << endl;
 
 			changeCalculator(payment(drink.getItemPrice()), drink.getItemPrice());
 
@@ -125,12 +125,13 @@ int main()
 void changeCalculator(float payment, float const& price)
 {
 	cout << fixed << setprecision(2);
-	cout << "\n\nYour change is : $"<< payment - price<<"\n\n\n\n";
+	cout << "\n\nYour change is : $"<< payment - price<<"\n";
 
 //TODO: Create logic to calculate coins returned.
-/*
 
-	int change = (payment-price)
+
+
+	int change = (payment - price) * 100;
 	int dollars = 0;
 	int quarters = 0; 
 	int dimes = 0; 
@@ -147,12 +148,33 @@ void changeCalculator(float payment, float const& price)
 			dollars = floor(change / 100);
 			change = change % 100;
 		}
+
+		if (change > 24) {
+			quarters = floor(change / 25);
+			change = change % 25;
+		}
+
+		if (change > 9) {
+			dimes = floor(change / 10);
+			change = change % 10;
+		}
+
+		if (change > 4) {
+			nickles = floor(change / 5);
+			change = change % 5;
+		}
+
+		pennies = floor(change / 1);
+		change = change % 1;
+
+
+		cout << "Depensing:\n	" << dollars << " :dollar(s)\n	" << quarters << " :quarter(s)\n	" << dimes << " :dime(s)\n	" << nickles << " :nickle(s)\n	" << pennies << " :penn(y/ies)\n\n\n";
 		
 	}
 
 
 
-*/
+
 }
 
 float payment(float const& price) {
